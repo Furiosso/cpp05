@@ -3,15 +3,17 @@
 
 # include <string>
 # include <iostream>
-# include <exception>
 
 class	Bureaucrat
 {
 	private:
-		const std::string	_name;
-		int					_grade;
+		const std::string			_name;
+		int							_grade;
+		static const std::string	GradeTooHighException;
+		static const std::string	GradeTooLowException;
 	public:
 		Bureaucrat(void);
+		Bureaucrat(const std::string& name, int grade);
 		Bureaucrat(const Bureaucrat& src);
 		Bureaucrat& operator=(const Bureaucrat& rhs);
 		~Bureaucrat(void);
