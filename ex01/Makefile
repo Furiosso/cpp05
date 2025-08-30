@@ -1,11 +1,12 @@
 CC = c++
 
-NAME = bureaucrat
+NAME = form
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 CFILES = main.cpp\
-		 Bureaucrat.cpp
+		 Bureaucrat.cpp\
+		 Form.cpp
 
 ODIR = build
 
