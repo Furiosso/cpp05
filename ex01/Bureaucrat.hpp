@@ -4,6 +4,9 @@
 # include <string>
 # include <iostream>
 # include <exception>
+# include "Form.hpp"
+
+class	Form;
 
 class	Bureaucrat
 {
@@ -28,6 +31,7 @@ class	Bureaucrat
 		int					getGrade() const;
 		void				upgrade();
 		void				downgrade();
+		void				signForm(Form& form);
 };
 
 std::ostream&	operator<<(std::ostream& o, Bureaucrat const& value);

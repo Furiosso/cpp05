@@ -6,6 +6,8 @@
 # include <exception>
 # include "Bureaucrat.hpp"
 
+class	Bureaucrat;
+
 class	Form
 {
 	private:
@@ -29,8 +31,9 @@ class	Form
 		~Form();
 		const std::string&	getName() const;
 		bool				getIsSigned() const;
-		const int			getGradeToSign() const;
-		const int			getGradeToExecute() const;
+		int					getGradeToSign() const;
+		int					getGradeToExecute() const;
+		void				beSigned(Bureaucrat& bureaucrat);
 };
 
 std::ostream&	operator<<(std::ostream& o, Form const& value);

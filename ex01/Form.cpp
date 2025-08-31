@@ -22,11 +22,34 @@ Form::~Form(void) {}
 
 const std::string&	Form::getName() const { return this->_name; }
 bool	Form::getIsSigned() const { return this->_is_signed; }
-const int	Form::getGradeToSign() const { return this->_grade_to_sign; }
-const int	Form::getGradeToExecute() const { return this->_grade_to_execute; }
+int	Form::getGradeToSign() const { return this->_grade_to_sign; }
+int	Form::getGradeToExecute() const { return this->_grade_to_execute; }
+
+void	Form::beSigned(Bureaucrat& bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->_grade_to_sign)
+		throw GradeTooLowException();
+	this->_is_signed = true;
+}
+
+const char*	Form::GradeTooHighException::what() const throw()
+{
+	return "Grade too high!";
+}
+
+const char*	Form::GradeTooLowException::what() const throw()
+{
+	return "Grade too low!";
+}
+
 std::ostream&	operator<<(std::ostream& o, Form const& value)
 {
-	o << value;
+	std::string	isSigned;
+	
+	isSigned = " is not signed.";
+	if (value.getIsSigned())
+		isSigned = " is signed.";
+	o << value.getName() << isSigned << " It requires a bureaucrat grade " << value.getGradeToSign() << " or above to be signed and a bureaucrat grade " << value.getGradeToExecute() << " or above to be executed.";
 	return o;
 }
 
