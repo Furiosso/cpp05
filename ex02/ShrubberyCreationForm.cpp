@@ -46,7 +46,7 @@ void		ShrubberyCreationForm::execute(const Bureaucrat& executor) const
 	<< "`&%\\ ` /%&'    |.|        \\ '|8'" << std::endl
     << "   	|o|        | |         | |" << std::endl
     << "    |.|        | |         | |" << std::endl
-	<< "  \\/ ._\\//_/__/  ,\\_//__\\/.  \\_//__/_" << std::endl;
+	<< "  \\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
 	outfile.close();
 	}
 }
