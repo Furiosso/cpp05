@@ -23,6 +23,10 @@ class	AForm
 		{
 			const char* what() const throw();
 		};
+		class	DocumentNotSigned : public std::exception
+		{
+			const char* what() const throw();
+		};
 	public:
 		AForm();
 		AForm(const std::string name, const int grade_to_sign, const int grade_to_execute);
@@ -34,7 +38,8 @@ class	AForm
 		int					getGradeToSign() const;
 		int					getGradeToExecute() const;
 		void				beSigned(Bureaucrat& bureaucrat);
-		virtual void		execute(const Bureaucrat& executor) const = 0;
+		void				execute(const Bureaucrat& executor) const;
+		virtual void		procede() const = 0;
 };
 
 std::ostream&	operator<<(std::ostream& o, AForm const& value);

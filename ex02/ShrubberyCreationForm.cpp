@@ -26,16 +26,18 @@ const std::string&	ShrubberyCreationForm::getTarget() const { return this->_targ
 
 const std::string&	ShrubberyCreationForm::getFileName() const { return this->_filename; }
 
-void		ShrubberyCreationForm::execute(const Bureaucrat& executor) const
+const char*	ShrubberyCreationForm::FileNotOpened::what() const throw()
 {
-	if (executor.getGrade() < this->getGradeToExecute())
-	{
+	return "File couldn't be opened";
+}
+
+void		ShrubberyCreationForm::procede() const
+{
 	std::ofstream	outfile;
 
 	outfile.open(this->_filename.c_str());
 	if (!outfile.is_open())
-		std::cerr << "Couldn't create file" << std::endl;
-	
+		throw FileNotOpened();
     outfile << std::endl
 	<< "           ,@@@@@@@," << std::endl
     << "   ,,,.   ,@@@@@@/@@,  .oo8888o." << std::endl
@@ -48,5 +50,4 @@ void		ShrubberyCreationForm::execute(const Bureaucrat& executor) const
     << "    |.|        | |         | |" << std::endl
 	<< "  \\/ ._\\//_/__/  ,\\_//__\\\\/.  \\_//__/_" << std::endl;
 	outfile.close();
-	}
 }

@@ -42,6 +42,20 @@ const char*	AForm::GradeTooLowException::what() const throw()
 	return "Grade too low!";
 }
 
+const char*	AForm::DocumentNotSigned::what() const throw()
+{
+	return "The document must be signed in order to be executed";
+}
+
+void	AForm::execute(const Bureaucrat& executor) const
+{
+	if (!this->_is_signed)
+		throw AForm::DocumentNotSigned();
+	if (executor.getGrade() > this->_grade_to_execute)
+		throw AForm::GradeTooLowException();
+	executor.executeForm(*this);
+}
+
 std::ostream&	operator<<(std::ostream& o, AForm const& value)
 {
 	std::string	isSigned;

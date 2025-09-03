@@ -8,8 +8,8 @@ CFILES = main.cpp\
 		 Bureaucrat.cpp\
 		 AForm.cpp\
 		 ShrubberyCreationForm.cpp\
-		 #RobotomyRequestForm.cpp\
-		 #PresidentialPardonForm.cpp
+		 RobotomyRequestForm.cpp\
+		 PresidentialPardonForm.cpp
 
 ODIR = build
 

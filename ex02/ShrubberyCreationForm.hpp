@@ -1,8 +1,6 @@
 #ifndef SHRUBBERYCREATIONFORM_HPP
 # define SHRUBBERYCREATIONFORM_HPP
 
-# include <string>
-# include <iostream>
 # include <fstream>
 # include "AForm.hpp"
 
@@ -11,6 +9,10 @@ class	ShrubberyCreationForm : public AForm
 	private:
 		std::string	_target;
 		std::string	_filename;
+		class	FileNotOpened : public std::exception
+		{
+			const char* what() const throw();
+		};
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string& target);
@@ -19,7 +21,7 @@ class	ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm(void);
 		const std::string&	getTarget() const;
 		const std::string&	getFileName() const;
-		void				execute(const Bureaucrat& executor) const;
+		void				procede() const;
 };
 
 #endif
