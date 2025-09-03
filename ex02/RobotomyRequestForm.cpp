@@ -2,9 +2,9 @@
 
 bool	RobotomyRequestForm::_hasSuccess = true;
 
-RobotomyRequestForm::RobotomyRequestForm() : AForm(), _target("Arthur Dent") {}
+RobotomyRequestForm::RobotomyRequestForm() : AForm("robotomy request", 72, 45), _target("Arthur Dent") {}
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("Robotomy-Form", 72, 45), _target(target) {}
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target) : AForm("robotomy request", 72, 45), _target(target) {}
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src) : AForm(src), _target(src.getTarget()) {}
 
