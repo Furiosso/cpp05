@@ -14,7 +14,8 @@ AForm::AForm(const AForm& src) : _name(src.getName()), _is_signed(src.getIsSigne
 
 AForm& AForm::operator=(const AForm& rhs)
 {
-	this->_is_signed = rhs.getIsSigned();
+	if (this != &rhs)
+		this->_is_signed = rhs.getIsSigned();
 	return *this;
 }
 
@@ -53,7 +54,7 @@ void	AForm::execute(const Bureaucrat& executor) const
 		throw AForm::DocumentNotSigned();
 	if (executor.getGrade() > this->_grade_to_execute)
 		throw AForm::GradeTooLowException();
-	executor.executeForm(*this);
+	this->procede();
 }
 
 std::ostream&	operator<<(std::ostream& o, AForm const& value)

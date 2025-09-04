@@ -1,8 +1,8 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm() : AForm("presidential pardon form", 25, 5), _target("Marvin") {}
+PresidentialPardonForm::PresidentialPardonForm() : AForm("presidential pardon", 25, 5), _target("Marvin") {}
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("presidential pardon form", 25, 5), _target(target) {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target) : AForm("presidential pardon", 25, 5), _target(target) {}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src) : AForm(src), _target(src.getTarget()) {}
 

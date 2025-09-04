@@ -13,6 +13,7 @@ class	ShrubberyCreationForm : public AForm
 		{
 			const char* what() const throw();
 		};
+		void				procede() const;
 	public:
 		ShrubberyCreationForm();
 		ShrubberyCreationForm(const std::string& target);
@@ -21,7 +22,6 @@ class	ShrubberyCreationForm : public AForm
 		~ShrubberyCreationForm(void);
 		const std::string&	getTarget() const;
 		const std::string&	getFileName() const;
-		void				procede() const;
 };
 
 #endif

@@ -2,10 +2,7 @@
 
 ShrubberyCreationForm::ShrubberyCreationForm() : AForm("shrubbery creation", 145, 137), _target(""), _filename("_shrubbery") {}
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("shrubbery creation", 145, 137), _target(target)
-{
-	this->_filename = this->_target.append("_shrubbery").c_str();
-}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target) : AForm("shrubbery creation", 145, 137), _target(target), _filename(_target + "_shrubbery") {}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& src) : AForm(src), _target(src.getTarget()), _filename(src.getFileName()) {}
 
