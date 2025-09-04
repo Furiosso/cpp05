@@ -16,11 +16,6 @@ Intern& Intern::operator=(const Intern& rhs)
 
 Intern::~Intern() {}
 
-const char*	Intern::InvalidNameException::what() const throw()
-{
-	return "Requested form do no exist";
-}
-
 AForm*	Intern::makeForm(const std::string name, const std::string target) const
 {
 	std::string	forms[3] =
@@ -48,6 +43,7 @@ AForm*	Intern::makeForm(const std::string name, const std::string target) const
 			std::cout << "Intern creates " << name << std::endl;
 			return new PresidentialPardonForm(target);
 		default:
-			throw InvalidNameException();
+			std::cerr << "Requested form do not exist" << std::endl;
+			return NULL;
 	}
 }

@@ -3,7 +3,7 @@
 #include "Form.hpp"
 
 int main() {
-    // Test 1: Create a form and a bureaucrat, attempt to sign the form
+    std::cout << "Test 1: Create a form and a bureaucrat, attempt to sign the form M" << std::endl;
     try {
         Bureaucrat bob("Bob", 5);
         Form formA("FormA", 10, 20);
@@ -14,7 +14,7 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 
-    // Test 2: Bureaucrat with insufficient grade to sign the form
+    std::cout << "Test 2: Bureaucrat with insufficient grade to sign the form" << std::endl;
     try {
         Bureaucrat alice("Alice", 15);
         Form formB("FormB", 10, 20);
@@ -24,21 +24,21 @@ int main() {
         std::cerr << "Error: " << e.what() << std::endl;
     }
 
-    // Test 3: Create a form with invalid grades (too high)
+    std::cout << "Test 3: Create a form with invalid grades (too high)" << std::endl;
     try {
         Form invalidForm("InvalidForm", 0, 20); // Grade too high (0 < 1)
     } catch (std::exception& e) {
         std::cerr << "Error creating form: " << e.what() << std::endl;
     }
 
-    // Test 4: Create a form with invalid grades (too low)
+    std::cout << "Test 4: Create a form with invalid grades (too low)" << std::endl;
     try {
         Form invalidForm("InvalidForm", 151, 20); // Grade too low (> 150)
     } catch (std::exception& e) {
         std::cerr << "Error creating form: " << e.what() << std::endl;
     }
 
-    // Test 5: Create a form with valid grades and print its info
+    std::cout << "Test 5: Create a form with valid grades and print its info" << std::endl;
     try {
         Form formC("FormC", 50, 100);
         Bureaucrat carol("Carol", 75);

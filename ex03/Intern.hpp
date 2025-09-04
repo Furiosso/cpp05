@@ -7,11 +7,6 @@
 
 class	Intern
 {
-	private:
-		class InvalidNameException : public std::exception
-		{
-			const char* what() const throw();
-		};
 	public:
 		Intern();
 		Intern(const Intern& src);
